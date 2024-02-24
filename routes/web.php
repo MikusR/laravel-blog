@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('posts');
 });
 Route::get('/posts/{post}', function ($slug) {
-    return $slug;
-    $posts = file_get_contents(__DIR__ . "/../resources/posts/first-post.html");
+
+    $posts = file_get_contents(__DIR__ . "/../resources/posts/{$slug}.html");
     return view('post', ['post' => $posts]);
 });
