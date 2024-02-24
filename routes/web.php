@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('posts');
 });
-Route::get('/post', function () {
-    return view('post', ['post' => file_get_contents(__DIR__ . "/../resources/posts/first-post.html")]);
+Route::get('/posts/{post}', function ($slug) {
+    return $slug;
+    $posts = file_get_contents(__DIR__ . "/../resources/posts/first-post.html");
+    return view('post', ['post' => $posts]);
 });
