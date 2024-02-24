@@ -24,4 +24,4 @@ Route::get('/posts/{post}', function ($slug) {
     }
     $posts = file_get_contents($path);
     return view('post', ['post' => $posts]);
-});
+})->where('post', '[A-z_\-]+');
