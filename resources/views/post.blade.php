@@ -9,6 +9,6 @@
     <title>Document</title>
 </head>
 <body>
-<?= $post; ?>
+{!! $post !!}
 </body>
 </html>
