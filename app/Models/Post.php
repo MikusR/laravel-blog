@@ -18,7 +18,7 @@ class Post
     public function all()
     {
 //        dd(File::files(resource_path('posts')));
-        $files = File::files(resource_path('posts'));
+        $files = File::files(resource_path('posts'))->s;
         $posts = array_map(fn($file) => $file->getContents(), $files);
         return $posts;
     }
