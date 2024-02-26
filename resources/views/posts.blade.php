@@ -9,10 +9,18 @@
     <title>Document</title>
 </head>
 <body>
+<nav class="flex sm:justify-center space-x-4">
+
+    <a href="/"
+       class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Posts</a>
+
+</nav>
 @foreach($posts as $post)
     <article class="max-w-2xl mx-auto p-6">
-        {!! $post !!}
-        <a href="/posts/{{$post->slug}}" class="text-blue-500 hover:underline">Read more</a>
+        {!! $post->getContents() !!}
+        <a href="/posts/{{str_replace('.'.$post->getExtension(), '', $post->getBasename())}}"
+           class="text-blue-500 hover:underline">Read
+            more</a>
     </article>
 @endforeach
 

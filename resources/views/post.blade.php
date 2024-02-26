@@ -9,6 +9,12 @@
     <title>Document</title>
 </head>
 <body>
+<nav class="flex sm:justify-center space-x-4">
+
+    <a href="/"
+       class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Posts</a>
+
+</nav>
 <article class="max-w-2xl mx-auto p-6">
     {!! $post !!}
 </article>
