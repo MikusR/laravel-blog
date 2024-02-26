@@ -16,7 +16,7 @@
 
 </nav>
 
-{{ $content }}
+{{ $slot }}
 
 
 </body>
