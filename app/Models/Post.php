@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use http\Message\Body;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
