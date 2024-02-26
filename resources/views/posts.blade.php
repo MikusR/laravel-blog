@@ -17,8 +17,8 @@
 </nav>
 @foreach($posts as $post)
     <article class="max-w-2xl mx-auto p-6">
-        {!! $post->getContents() !!}
-        <a href="/posts/{{str_replace('.'.$post->getExtension(), '', $post->getBasename())}}"
+        {!! $post !!}
+        <a href="/posts/"
            class="text-blue-500 hover:underline">Read
             more</a>
     </article>
