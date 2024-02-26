@@ -15,7 +15,7 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-//    dd(Post::all());
+//    dd(Post::all()[0]->title);
     return view('posts', ['posts' => Post::all()]);
 });
 Route::get('/posts/{post}', function ($slug) {
