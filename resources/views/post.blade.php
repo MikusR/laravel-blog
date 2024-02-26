@@ -9,6 +9,8 @@
     <title>Document</title>
 </head>
 <body>
-{!! $post !!}
+<article class="max-w-2xl mx-auto p-6">
+    {!! $post !!}
+</article>
 </body>
 </html>

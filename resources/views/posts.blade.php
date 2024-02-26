@@ -9,19 +9,13 @@
     <title>Document</title>
 </head>
 <body>
-<article class="max-w-2xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-4">Article Title</h1>
-    <p class="text-gray-600 mb-4">Published on January 1, 2022 by John Doe</p>
-    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-    <a href="/posts/first-post" class="text-blue-500 hover:underline">Read more</a>
+@foreach($posts as $post)
+    <article class="max-w-2xl mx-auto p-6">
+        {!! $post !!}
+        <a href="/posts/{{$post->slug}}" class="text-blue-500 hover:underline">Read more</a>
+    </article>
+@endforeach
 
-</article>
-<article class="max-w-2xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-4">Article Title</h1>
-    <p class="text-gray-600 mb-4">Published on January 1, 2022 by John Doe</p>
-    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-    <a href="/posts/second-post" class="text-blue-500 hover:underline">Read more</a>
 
-</article>
 </body>
 </html>
