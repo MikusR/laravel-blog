@@ -30,15 +30,10 @@ class Post
 
     public function all()
     {
-//        dd(File::files(resource_path('posts')));
-        $files = File::files(resource_path('posts'));
-//        $posts = array_map(fn($file) => YamlFrontMatter::parseFile($file), $files);
-        $posts = [];
-        foreach ($files as $file) {
+        return collect(File::files(resource_path('posts')))->map(function ($file) {
             $parsed = YamlFrontMatter::parseFile($file);
-            $posts[] = new Post($parsed->title, $parsed->desc, $parsed->body());
-        }
-        return $posts;
+            return new Post($parsed->title, $parsed->desc, $parsed->body());
+        });
     }
 
 
