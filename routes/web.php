@@ -20,13 +20,15 @@ use App\Models\Post;
 Route::get('/', function () {
     return view('posts', ['posts' => Post::latest()->get()]);
 });
+Route::get('/testWithout', function () {
+    return view('posts', ['posts' => Post::latest()->without(['author', 'category'])->get()]);
+});
 
 Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', ['post' => $post]);
 });
 Route::get('/author/{author:username}', function (User $author) {
     return view('author', ['author' => $author, 'posts' => $author->posts]);
-//    return view('author', ['author' => $author, 'posts' => $author->posts->load(['category', 'author'])]);
 });
 Route::get('/categories/{category}', function (Category $category) {
     return view('category', ['category' => $category, 'posts' => $category->posts]);
