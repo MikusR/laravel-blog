@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Category;
+
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 
@@ -15,11 +18,21 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-//    dd(Post::all());
-    return view('posts', ['posts' => Post::all()]);
+    return view('posts', ['posts' => Post::latest()->get()]);
 });
-Route::get('/posts/{post}', function ($slug) {
-//    dd(Post::find($slug));
-    return view('post', ['post' => Post::findOrFail($slug)]);
+Route::get('/testWithout', function () {
+    return view('posts', ['posts' => Post::latest()->without(['author', 'category'])->get()]);
+});
 
+Route::get('/posts/{post:slug}', function (Post $post) {
+    return view('post', ['post' => $post]);
+});
+Route::get('/author/{author:username}', function (User $author) {
+    return view('author', ['author' => $author, 'posts' => $author->posts]);
+});
+Route::get('/categories/{category}', function (Category $category) {
+    return view('category', ['category' => $category, 'posts' => $category->posts]);
+});
+Route::get('/categories', function () {
+    return view('categories', ['categories' => Category::with('posts')->get()]);
 });
