@@ -18,7 +18,7 @@ Route::get('/', function () {
 //    dd(Post::all());
     return view('posts', ['posts' => Post::all()]);
 });
-Route::get('/posts/{post}', function (Post $post) {
+Route::get('/posts/{post:slug}', function (Post $post) {
 //    dd($post);
     return view('post', ['post' => $post]);
 

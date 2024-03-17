@@ -5,7 +5,7 @@
             <h1 class="text-3xl font-bold mb-4">{{ $post->title }}</h1>
             <p class="text-gray-600 mb-4">{{$post->date}} by {{ $post->author }}</p>
             {!! Str::limit($post->body,150) !!}
-            <a href="/posts/{{$post->id}}"
+            <a href="/posts/{{$post->slug}}"
                class="text-blue-500 hover:underline">Read
                 more</a>
         </article>
