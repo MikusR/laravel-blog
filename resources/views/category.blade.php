@@ -1,10 +1,9 @@
 <x-layout>
-
+    <h1 class="max-w-2xl mx-auto p-6 text-3xl font-bold">{{$category->name}}</h1>
     @foreach($posts as $post)
         <article class="{{ $loop->even ? 'bg-slate-50 ' : '' }}max-w-2xl mx-auto p-6">
-            <h1 class="text-3xl font-bold mb-4">{{ $post->title }}</h1>
-            <p class="text-gray-600 mb-4">{{$post->date}} by {{ $post->author }} in <a class="text-blue-500 mb-4"
-                                                                                       href="/categories/{{ $post->category->slug }}">{{$post->category->name}}</a>
+            <h2 class="text-3xl  mb-4">{{ $post->title }}</h2>
+            <p class="text-gray-600 mb-4">{{$post->date}} by {{ $post->author }}
             </p>
 
             {!! Str::limit($post->body,150) !!}
