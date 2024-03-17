@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Category;
+
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 
@@ -16,11 +18,14 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-    return view('posts', ['posts' => Post::with(['category', 'author'])->get()]);
+    return view('posts', ['posts' => Post::latest()->with(['category', 'author'])->get()]);
 });
 
 Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', ['post' => $post]);
+});
+Route::get('/author/{author}', function (User $author) {
+    return view('author', ['author' => $author, 'posts' => $author->posts]);
 });
 Route::get('/categories/{category}', function (Category $category) {
     return view('category', ['category' => $category, 'posts' => $category->posts]);
