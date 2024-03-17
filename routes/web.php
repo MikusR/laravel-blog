@@ -25,10 +25,11 @@ Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', ['post' => $post]);
 });
 Route::get('/author/{author:username}', function (User $author) {
-    return view('author', ['author' => $author, 'posts' => $author->posts]);
+    return view('author', ['author' => $author, 'posts' => $author->posts->load(['category', 'author'])]);
+//    return view('author', ['author' => $author, 'posts' => $author->posts->load(['category', 'author'])]);
 });
 Route::get('/categories/{category}', function (Category $category) {
-    return view('category', ['category' => $category, 'posts' => $category->posts]);
+    return view('category', ['category' => $category, 'posts' => $category->posts->load(['category', 'author'])]);
 });
 Route::get('/categories', function () {
     return view('categories', ['categories' => Category::with('posts')->get()]);
