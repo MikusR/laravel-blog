@@ -3,8 +3,8 @@
     @foreach($posts as $post)
         <article class="{{ $loop->even ? 'bg-slate-50 ' : '' }}max-w-2xl mx-auto p-6">
             <h1 class="text-3xl font-bold mb-4">{{ $post->title }}</h1>
-            <p class="text-gray-600 mb-4">{{$post->date}} by {{ $post->author }} in <a class="text-blue-500 mb-4"
-                                                                                       href="/categories/{{ $post->category->slug }}">{{$post->category->name}}</a>
+            <p class="text-gray-600 mb-4">{{$post->date}} by {{ $post->author->name }} in <a class="text-blue-500 mb-4"
+                                                                                             href="/categories/{{ $post->category->slug }}">{{$post->category->name}}</a>
             </p>
 
             {!! Str::limit($post->body,150) !!}
