@@ -14,14 +14,14 @@ class PostFactory extends Factory
      */
     public function definition($user_id = null, $category = null)
     {
-        $body = str_repeat("<p class=\"mb-4\">" . $this->faker->paragraph(10) . "</p>", 3);
+        $body = str_repeat("<p class=\"py-6\"/>" . $this->faker->paragraph(10) . "</p>", 3);
         return [
             'title' => $this->faker->sentence(),
             'body' => $body,
             'user_id' => $user_id,
             'category_id' => $category,
             'slug' => $this->faker->slug(),
-            'excerpt' => Str::limit($body, 150),
+            'excerpt' => $this->faker->sentence,
 
         ];
     }

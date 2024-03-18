@@ -1,19 +1,64 @@
 <x-layout>
+    <div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
 
-    @foreach($posts as $post)
-        <article class="{{ $loop->even ? 'bg-slate-50 ' : '' }}max-w-2xl mx-auto p-6">
-            <h1 class="text-3xl font-bold mb-4">{{ $post->title }}</h1>
-            <p class="text-gray-600 mb-4">{{$post->created_at}} by <a class="text-blue-500 mb-4"
-                                                                      href="/author/{{ $post->author->username }} ">{{ $post->author->name }} </a>
-                in <a class="text-blue-500 mb-4"
-                      href="/categories/{{ $post->category->slug }}">{{$post->category->name}}</a>
-            </p>
+        <div class="mx-0 sm:mx-6">
 
-            {!! Str::limit($post->body,150) !!}
-            <a href="/posts/{{$post->slug}}"
-               class="text-blue-500 hover:underline">Read
-                more</a>
-        </article>
-    @endforeach
+            <!--Nav-->
+            <x-nav/>
+            <!--/Nav-->
+
+            <div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
+
+                <!--Lead Card-->
+                <x-lead-card :post="$posts[0]"/>
+                <!--/Lead Card-->
+
+
+                <!--Posts Container-->
+                <div class="flex flex-wrap justify-between pt-12 -mx-6">
+
+                    <!--1/3 col -->
+                    <x-1-3-col-card/>
+
+
+                    <!--1/3 col -->
+                    <x-1-3-col-card/>
+
+                    <!--1/3 col -->
+                    <x-1-3-col-card/>
+
+
+                    <!--1/2 col -->
+                    <x-1-2-col-card/>
+
+                    <!--1/2 col -->
+                    <x-1-2-col-card/>
+
+
+                    <!--2/3 col -->
+                    <x-2-3-col-card/>
+
+                    <!--1/3 col -->
+                    <x-1-3-col-card/>
+
+                </div>
+                <!--/ Post Content-->
+
+            </div>
+
+
+            <!--Subscribe-->
+            <x-subscribe-card/>
+            <!-- /Subscribe-->
+
+
+            <!--Author-->
+
+            <!--/Author-->
+
+        </div>
+
+
+    </div>
 
 </x-layout>

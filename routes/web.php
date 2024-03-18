@@ -26,10 +26,10 @@ Route::get('/testWithout', function () {
 
 Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', ['post' => $post]);
-});
+})->name('post');
 Route::get('/author/{author:username}', function (User $author) {
     return view('author', ['author' => $author, 'posts' => $author->posts]);
-});
+})->name('author');
 Route::get('/categories/{category}', function (Category $category) {
     return view('category', ['category' => $category, 'posts' => $category->posts]);
 });
