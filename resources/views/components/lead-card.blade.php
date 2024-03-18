@@ -19,7 +19,7 @@
             <div class="flex items-center justify-between">
                 <img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="{{ $post->author->name }}"
                      src="http://i.pravatar.cc/300" alt="Avatar of Author">
-                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
+                <p class="text-gray-600 text-xs md:text-sm">{{$post->created_at->diffForHumans()}}</p>
             </div>
         </div>
 

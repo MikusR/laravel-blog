@@ -32,7 +32,7 @@ Route::get('/author/{author:username}', function (User $author) {
 })->name('author');
 Route::get('/categories/{category}', function (Category $category) {
     return view('category', ['category' => $category, 'posts' => $category->posts]);
-});
+})->name('category');
 Route::get('/categories', function () {
     return view('categories', ['categories' => Category::with('posts')->get()]);
 });

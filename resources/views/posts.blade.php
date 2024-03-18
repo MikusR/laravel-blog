@@ -13,33 +13,24 @@
                 <x-lead-card :post="$posts[0]"/>
                 <!--/Lead Card-->
 
-
                 <!--Posts Container-->
                 <div class="flex flex-wrap justify-between pt-12 -mx-6">
 
-                    <!--1/3 col -->
-                    <x-1-3-col-card/>
+                    @foreach($posts->skip(1)->take(3) as $post)
+                        <!--1/3 col -->
+                        <x-1-3-col-card :post="$post"/>
+                    @endforeach
 
-
-                    <!--1/3 col -->
-                    <x-1-3-col-card/>
-
-                    <!--1/3 col -->
-                    <x-1-3-col-card/>
-
-
-                    <!--1/2 col -->
-                    <x-1-2-col-card/>
-
-                    <!--1/2 col -->
-                    <x-1-2-col-card/>
-
+                    @foreach($posts->skip(4)->take(2) as $post)
+                        <!--1/2 col -->
+                        <x-1-2-col-card :post="$post"/>
+                    @endforeach
 
                     <!--2/3 col -->
-                    <x-2-3-col-card/>
+                    <x-2-3-col-card :post="$posts[7]"/>
 
                     <!--1/3 col -->
-                    <x-1-3-col-card/>
+                    <x-1-3-col-card :post="$posts[8]"/>
 
                 </div>
                 <!--/ Post Content-->

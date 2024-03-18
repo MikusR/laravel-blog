@@ -6,9 +6,9 @@
 
     <!--Title-->
     <div class="text-center pt-16 md:pt-32">
-        <p class="text-sm md:text-base text-green-500 font-bold">{{ $post->created_at }}<span
+        <p class="text-sm md:text-base text-green-500 font-bold">{{ $post->created_at->format('M j, Y') }}<span
                 class="text-gray-900">/</span>
-            {{ $post->category->name }}</p>
+            <a href="{{ route('category', $post->category->slug) }}">{{ $post->category->name }}</a></p>
         <h1 class="font-bold break-normal text-3xl md:text-5xl">{{$post->title}}</h1>
     </div>
 
